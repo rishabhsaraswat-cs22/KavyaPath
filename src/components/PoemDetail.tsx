@@ -12,7 +12,7 @@ const PoemDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [speech, setSpeech] = useState<SpeechSynthesisUtterance | null>(null);
-  const [language, setLanguage] = useState<string>("en-US"); // Default to English
+  const [language, setLanguage] = useState<string>("hi-IN"); // Default to English
 
   useEffect(() => {
     
@@ -162,7 +162,7 @@ const PoemDetail = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-xl text-amber-700 italic mb-2 text-center"
           >
-            by {poem.author}
+            {poem.author}
           </motion.p>
           
           <motion.div
@@ -171,20 +171,6 @@ const PoemDetail = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col items-center gap-3 mb-8"
           >
-            <div className="flex items-center gap-3">
-              <label htmlFor="language-select" className="text-amber-700">
-                Language:
-              </label>
-              <select 
-                id="language-select" 
-                value={language} 
-                onChange={handleLanguageChange}
-                className="bg-amber-50 border border-amber-300 rounded px-3 py-1 text-amber-800"
-              >
-                <option value="en-US">English</option>
-                <option value="hi-IN">Hindi</option>
-              </select>
-            </div>
             
             <button
               onClick={togglePlay}
